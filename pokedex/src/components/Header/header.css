@@ -1,0 +1,29 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3% 5%;
+}
+
+#mainLogo {
+  height: 120px;
+  width: 331.71px;
+}
+
+.header-button {
+  color: white;
+  background: red;
+  height: 72px;
+  width: 420px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50px;
+  font-size: 36px;
+  font-weight: 590;
+}
+
+.header-button img {
+  height: 72px;
+  width: 72px;
+}
