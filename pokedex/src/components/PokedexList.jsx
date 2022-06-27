@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Post from "./Post/Post"
 
-const PokedexList = (loading, pokedexData) => {
-  // console.log(pokedexData)
-  // console.log(pokedexData[1])
-  // console.log(Array.isArray(pokedexData))
-  // if (loading) {
-  //   return <h1>Loading...</h1>
-  // }
-  const [realData, setRealData] = useState([1,2,3])
-  const [toLoad, setToLoad] = useState(true)
+const PokedexList = ({actualData, loading}) => {
 
-  console.log(loading, pokedexData)
+  if (loading) {
+    return <h2>load brad</h2>
+  }
 
 
 
@@ -26,9 +20,9 @@ const PokedexList = (loading, pokedexData) => {
 
   return (
     <div className="list-container">
-      {pokedexData.map(item => {
-        return <h1>{item.name}</h1>
-      })}
+      {actualData.map(item => (
+        <h1>{item.name}</h1>
+      ))}
     </div>
   )
 }
