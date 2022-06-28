@@ -14,7 +14,7 @@ const App = () => {
   const [postsPerPage, setPostsPerPage] = useState(10)
   const [pokedexData, setPokedexData] = useState([])
   const [firstData, setFirstData] = useState();
-  const [actualData, setActualData] = useState();
+  const [actualData, setActualData] = useState([]);
   
 
 
@@ -111,10 +111,10 @@ const App = () => {
     <div className="App">
       <Header />
       <div className="list-container">
-        <PokedexList actualData={actualData} />
-        {/* {actualData.map(item => {
-          <Post id={uuidv4()} data={actualData} loading={loading}/>
-        })} */}
+        {/* <PokedexList actualData={actualData} loading={loading}/> */}
+        {actualData.length > 0 && actualData.map(item => (
+           <Post key={uuidv4()} data={item} loading={loading}/>
+        ))}
       </div>
 
     </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Post from "./Post/Post"
+import { v4 as uuidv4 } from "uuid"
 
 const PokedexList = ({actualData, loading}) => {
 
@@ -7,6 +8,7 @@ const PokedexList = ({actualData, loading}) => {
     return <h2>load brad</h2>
   }
 
+  console.log(actualData, "pokedexlist data")
 
 
 
@@ -21,7 +23,7 @@ const PokedexList = ({actualData, loading}) => {
   return (
     <div className="list-container">
       {actualData.map(item => (
-        <h1>{item.name}</h1>
+        <Post key={uuidv4()} actualData={item} loading={loading}></Post>
       ))}
     </div>
   )

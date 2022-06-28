@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 const Post = ({ id, data, loading }) => {
-  const postName = data['name'];
-  const postUrl = data['url'];
+  // const postName = data['name'];
+  // const postUrl = data['url'];
   const [postDetails, setPostDetails] = useState(false);
+  const [postData, setPostData] = useState([]);
+  const [isHere, setIsHere] = useState(true);
+
+  const postID = id;
+
+  console.log(data, 'post data');
 
   // useEffect(() => {
   //   async function getDetails() {
@@ -15,6 +21,11 @@ const Post = ({ id, data, loading }) => {
   //   }
   //   getDetails();
   // }, []);
+
+  // useEffect(() => {
+  //   setPostData(data);
+  //   setIsHere(true);
+  // }, [postData]);
 
   if (loading) {
     return <h3>loading loading</h3>;
@@ -32,10 +43,16 @@ const Post = ({ id, data, loading }) => {
   return (
     <div>
       {/* {postImage} */}
-      {/* <img src={postDetails['sprites']['other']['official-artwork']} alt="" /> */}
-      <div>{postDetails.order}</div>
-      <h1>{postName}</h1>
-      <h1>{postDetails}</h1>
+      <img
+        src={data['sprites']['other']['official-artwork']['front_default']}
+        alt=""
+      />
+
+      <div>
+        <div>{data['order']}</div>
+        <h1>{data.name}</h1>
+        <h1>{data.weight}</h1>
+      </div>
     </div>
   );
 };
