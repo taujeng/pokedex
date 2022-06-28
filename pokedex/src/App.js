@@ -71,40 +71,31 @@ const App = () => {
         const res2 = res.data
         const res3 = res2.results
         setFirstData(res3);
-        console.log(firstData, "first")
 
-        let list1 = []
+
+        let fullList = []
         for (let i=0; i < res3.length; i++) {
           const dip = await axios.get(res3[i]["url"])
           const dip2 = dip.data;
-          // console.log(dip2)
-          list1.push(dip2)
-          // setActualData([...actualData, dip2])
+          fullList.push(dip2)
         }
-        console.log(list1)
-        const setSecondData = list1
-        setActualData(setSecondData)
-        console.log(actualData, "here")
+        console.log(fullList)
+        setActualData(fullList)
       } catch(e) {
         console.log(e)
       }
 
     }
     getPosts()
-    console.log(actualData, "2nd")
+    // console.log(actualData, "2nd")
 
-
-
-
-      // setPokedexData(res.data)
       setLoading(false)
-
   }, [])
 
-  useEffect(() => {
-    setActualData(actualData)
-    console.log(actualData)
-  }, [actualData])
+  // useEffect(() => {
+  //   setActualData(actualData)
+  //   console.log(actualData)
+  // }, [actualData])
 
 
   return (
