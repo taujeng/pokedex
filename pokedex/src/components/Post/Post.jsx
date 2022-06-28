@@ -38,6 +38,7 @@ const Post = ({ id, data, loading }) => {
 
   // Pokemon Types
   let pokemonTypes = upperCase(data.types[0].type.name);
+
   for (let i = 1; i < data.types.length; i++) {
     pokemonTypes += ' • ' + upperCase(data.types[i].type.name);
   }
@@ -68,7 +69,7 @@ const Post = ({ id, data, loading }) => {
   // }
 
   return (
-    <div className="post-container">
+    <div className={`post-container ${data.types[0].type.name}-type`}>
       <div className="img-container">
         <img
           className="post-image"

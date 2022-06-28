@@ -1,3 +1,30 @@
+:root {
+  --grass-bg-color: rgba(116, 203, 72, 0.7);
+  --fire-bg-color: rgba(245, 125, 49, 0.7);
+  --water-bg-color: rgba(51, 153, 254, 0.7);
+  --poison-bg-color: rgba(169, 187, 34, 0.7);
+}
+
+  /* Pokemon BG Color based on Type */
+.default-type {
+  background: white;
+}
+.grass-type {
+  background: var(--grass-bg-color);
+}
+.fire-type {
+  background: var(--fire-bg-color);
+}
+.water-type {
+  background: var(--water-bg-color);
+}
+.poison-type {
+  background: var(--poison-bg-color);
+}
+
+
+
+
 .post-container {
   display: flex;
   height: 200px;
@@ -10,10 +37,13 @@
   margin: 20px;
 }
 
+
 .post-image {
   width: 160px;
   height: 160px;
 }
+
+
 
 .post-text {
   width: 100%;
@@ -23,6 +53,8 @@
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  background: white;
+  border-radius: 0 0 15px 15px;
 }
 
 .post-text p {
