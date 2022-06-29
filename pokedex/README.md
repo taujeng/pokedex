@@ -2,6 +2,8 @@
 
 Pokedex lists the original 151 Pokemons in custom posts!
 
+![Pokedex Example](pokedexSS.jpg?raw=true 'Pokedex')
+
 ## Goal is to:
 
 - [x] Fetch the Pokemon data from an [API](https://pokeapi.co/api/v2/pokemon?limit=151&offset=0)
