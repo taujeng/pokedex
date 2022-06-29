@@ -3,6 +3,7 @@ import Header from "./components/Header/Header"
 import React, { useState, useEffect } from 'react'
 import Post from "./components/Post/Post"
 import PokedexList from './components/PokedexList';
+import Pagination from "./components/Pagination/Pagination"
 import { v4 as uuidv4 } from "uuid"
 import axios from "axios"
 
@@ -11,7 +12,7 @@ const App = () => {
 
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10)
+  const [postsPerPage, setPostsPerPage] = useState(12)
   const [pokedexData, setPokedexData] = useState([])
   const [firstData, setFirstData] = useState();
   const [actualData, setActualData] = useState([]);
@@ -67,7 +68,7 @@ const App = () => {
       // can't just stack res.data.results
 
       try {
-        const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
+        const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0")
         const res2 = res.data
         const res3 = res2.results
         setFirstData(res3);
@@ -92,21 +93,24 @@ const App = () => {
       setLoading(false)
   }, [])
 
-  // useEffect(() => {
-  //   setActualData(actualData)
-  //   console.log(actualData)
-  // }, [actualData])
+  // Pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = actualData.slice(indexOfFirstPost, indexOfLastPost);
 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <div className="App">
       <Header />
       <div className="list-container">
         {/* <PokedexList actualData={actualData} loading={loading}/> */}
-        {actualData.length > 0 && actualData.map(item => (
+        {currentPosts.map(item => (
            <Post key={uuidv4()} data={item} loading={loading}/>
         ))}
       </div>
+      <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
+
 
     </div>
   );

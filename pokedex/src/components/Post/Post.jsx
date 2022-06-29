@@ -27,7 +27,7 @@ const Post = ({ id, data, loading }) => {
   }
 
   // Creating Post Title
-  let postTitle = String(data.order);
+  let postTitle = String(data.id);
   while (postTitle.length < 3) {
     postTitle = '0' + postTitle;
   }

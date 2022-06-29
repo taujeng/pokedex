@@ -9,17 +9,59 @@
 .default-type {
   background: white;
 }
-.grass-type {
-  background: var(--grass-bg-color);
+.rock-type {
+  background: #BBAA66;
 }
-.fire-type {
-  background: var(--fire-bg-color);
+.ghost-type {
+  background: #6666BA;
+}
+.steel-type {
+  background: #AAAABB;
 }
 .water-type {
-  background: var(--water-bg-color);
+  background: #3399FE;
+}
+.grass-type {
+  background: #76CC55;
+}
+.psychic-type {
+  background: #FF5599;
+}
+.ice-type {
+  background: #65CCFF;
+}
+.dark-type {
+  background: #775444;
+}
+.fairy-type {
+  background: #EE99EE;
+}
+.normal-type {
+  background: #AAAA9B;
+}
+.fighting-type {
+  background: #BA5544;
+}
+.flying-type {
+  background: #8799FF;
 }
 .poison-type {
-  background: var(--poison-bg-color);
+  background: #AA5599;
+}
+.ground-type {
+  background: #DDBB54;
+}
+.bug-type {
+  background: #A9BB22;
+}
+.fire-type {
+  background: #EB5435;
+}
+.electric-type {
+  background: #FFCC33;
+}
+.dragon-type {
+  background: #6666BA;
 }
 
 
@@ -32,9 +74,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px black solid;
+  border: none;
   border-radius: 15px;
   margin: 20px;
+  -webkit-box-shadow: 1px 2px 3px 3px rgba(0,0,0,0.25); 
+  box-shadow: 1px 2px 3px 3px rgba(0,0,0,0.25);
 }
 
 
