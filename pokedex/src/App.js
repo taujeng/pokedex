@@ -71,7 +71,7 @@ const App = () => {
       // can't just stack res.data.results
 
       try {
-        const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0")
+        const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
         const res2 = res.data
         const res3 = res2.results
         setFirstData(res3);

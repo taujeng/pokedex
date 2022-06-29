@@ -18,7 +18,7 @@ const Details = ({ data, loading, id = 1 }) => {
   return (
     <div>
       <h1>butta butta</h1>
-      {myName}
+      <h2>{myName}</h2>
     </div>
   );
 };
