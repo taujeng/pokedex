@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './post.css';
 
-const Post = ({ id, data, loading }) => {
+const Post = ({ id, data, loading, selectPokemon }) => {
   // const postName = data['name'];
   // const postUrl = data['url'];
   const [postDetails, setPostDetails] = useState(false);
@@ -69,7 +69,10 @@ const Post = ({ id, data, loading }) => {
   // }
 
   return (
-    <div className={`post-container ${data.types[0].type.name}-type`}>
+    <div
+      onClick={() => selectPokemon(data.id)}
+      className={`post-container ${data.types[0].type.name}-type`}
+    >
       <div className="img-container">
         <img
           className="post-image"

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Post from "./components/Post/Post"
 import PokedexList from './components/PokedexList';
 import Pagination from "./components/Pagination/Pagination"
+import Details from "./components/Details/Details"
 import { v4 as uuidv4 } from "uuid"
 import axios from "axios"
 
@@ -16,6 +17,8 @@ const App = () => {
   const [pokedexData, setPokedexData] = useState([])
   const [firstData, setFirstData] = useState();
   const [actualData, setActualData] = useState([]);
+  const [chosenId, setChosenId] = useState(1);
+
   
 
 
@@ -100,15 +103,22 @@ const App = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
+  // View Details of a Pokemon by clicking on Post
+  const selectPokemon = (id) => {
+    setChosenId(id)
+    console.log(id, "chosen ID selected")
+  }
+
   return (
     <div className="App">
       <Header />
       <div className="list-container">
         {/* <PokedexList actualData={actualData} loading={loading}/> */}
         {currentPosts.map(item => (
-           <Post key={uuidv4()} data={item} loading={loading}/>
+           <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}/>
         ))}
       </div>
+      <Details data={actualData} loading={loading} chosenId={chosenId}/>
       <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
 
 
