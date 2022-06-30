@@ -2,7 +2,6 @@ import './App.css';
 import Header from "./components/Header/Header"
 import React, { useState, useEffect } from 'react'
 import Post from "./components/Post/Post"
-import PokedexList from './components/PokedexList';
 import Pagination from "./components/Pagination/Pagination"
 import Details from "./components/Details/Details"
 import { v4 as uuidv4 } from "uuid"
@@ -110,23 +109,21 @@ const App = () => {
     console.log(id - 1, "Array Index for Details")
   }
 
-
+  // Show or remove Details
   const dealDetails = () => {
     setIsActive(true)
-    console.log("shou;d be truie")
   }
 
   const removeDetails = () => {
     setIsActive(false)
-    console.log("remove it!")
   }
 
   return (
     <div className="App">
+
       <div className="container" id="container" >
         <Header removeDetails={removeDetails}/>
         <div className="list-container">
-          {/* <PokedexList actualData={actualData} loading={loading}/> */}
           {currentPosts.map(item => (
             <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}
             dealDetails={dealDetails}/>
@@ -135,9 +132,6 @@ const App = () => {
         <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
       </div>
       <Details actualData={actualData} loading={loading} chosenId={chosenId} isActive={isActive}/>
-
-
-
     </div>
   );
 }

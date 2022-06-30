@@ -34,7 +34,7 @@ const Post = ({ id, data, loading, selectPokemon, dealDetails }) => {
   const postClick = () => {
     selectPokemon(data.id);
     dealDetails();
-    console.log('here we are');
+    console.log(data.id, 'post sent this');
   };
   // useEffect(() => {
   //   async function getDetails() {

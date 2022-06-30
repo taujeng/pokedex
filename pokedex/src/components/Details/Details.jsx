@@ -21,10 +21,12 @@ const Details = ({ actualData, loading, chosenId, isActive }) => {
   // console.log(whatif, whatif.name);
 
   // If no Pokemons are selected, return nothing
-  if (!chosenId) {
-    return;
-  }
+  // if (!chosenId) {
+  //   console.log(chosenId, 'id receive');
+  //   return;
+  // }
 
+  // If Details Component is not active, return nothing.
   if (!isActive) {
     return;
   }
@@ -59,10 +61,7 @@ const Details = ({ actualData, loading, chosenId, isActive }) => {
     }
 
     return (
-      <div
-        className={`details-container ${isActive ? '' : 'collapsed'}`}
-        id="details-container"
-      >
+      <div className="details-container" id="details-container">
         <div className={`details-cover ${detailsData.types[0].type.name}-type`}>
           <img
             src={
@@ -94,28 +93,7 @@ const Details = ({ actualData, loading, chosenId, isActive }) => {
     );
   }
 
-  return (
-    <div>
-      <h1>Detailed view</h1>
-
-      {/* {actualData.length > 0 && <h1>{actualData[0].name}</h1>}
-      {actualData.length > 0 && <h1>{nameof}</h1>} */}
-
-      {/* {actualData.length > 0 && <h2>{whatif.name}</h2>} */}
-      {/* <h1>{actualData.order}</h1> */}
-
-      {/* --> app runs, but above isn't rendered */}
-
-      {/* <h1>{whatif.name}</h1> */}
-      {/* --> app doesn't run, cannot read properties of undefined. */}
-
-      {/* {detailsData.name.length > 0 && <h1>{detailsData.name}</h1>} */}
-      {/* --> app doesn't run, says can't read properties of undefined (reading 'length') */}
-
-      {/* {chosenId > 0 && <h1>{detailsData.name}</h1>} */}
-      {/* --> app runs, but nothing is rendered */}
-    </div>
-  );
+  return;
 };
 
 export default Details;
