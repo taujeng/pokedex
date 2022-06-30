@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './post.css';
 
-const Post = ({ id, data, loading, selectPokemon }) => {
+const Post = ({ id, data, loading, selectPokemon, dealDetails }) => {
+  useEffect(() => {
+    const postButton = document.getElementById('post-container');
+    postButton.addEventListener('click', () => {
+      document.getElementById('details-container').classList.toggle('collapse');
+    });
+  }, []);
+
   // Uppercase Words
   function upperCase(str) {
     return str[0].toUpperCase() + str.slice(1);
@@ -24,6 +31,11 @@ const Post = ({ id, data, loading, selectPokemon }) => {
     pokemonTypes += ' • ' + upperCase(data.types[i].type.name);
   }
 
+  const postClick = () => {
+    selectPokemon(data.id);
+    dealDetails();
+    console.log('here we are');
+  };
   // useEffect(() => {
   //   async function getDetails() {
   //     const urlDetails = postUrl;
@@ -51,8 +63,10 @@ const Post = ({ id, data, loading, selectPokemon }) => {
 
   return (
     <div
-      onClick={() => selectPokemon(data.id)}
+      onClick={postClick}
+      // onClick={() => selectPokemon(data.id)}
       className={`post-container ${data.types[0].type.name}-type`}
+      id="post-container"
     >
       <div className="img-container">
         <img

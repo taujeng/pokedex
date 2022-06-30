@@ -18,6 +18,7 @@ const App = () => {
   const [firstData, setFirstData] = useState();
   const [actualData, setActualData] = useState([]);
   const [chosenId, setChosenId] = useState();
+  const [isActive, setIsActive] = useState(false)
 
   
 
@@ -109,19 +110,31 @@ const App = () => {
     console.log(id - 1, "Array Index for Details")
   }
 
+
+  const dealDetails = () => {
+    setIsActive(true)
+    console.log("shou;d be truie")
+  }
+
+  const removeDetails = () => {
+    setIsActive(false)
+    console.log("remove it!")
+  }
+
   return (
     <div className="App">
-      <div className="container">
-        <Header />
+      <div className="container" id="container" >
+        <Header removeDetails={removeDetails}/>
         <div className="list-container">
           {/* <PokedexList actualData={actualData} loading={loading}/> */}
           {currentPosts.map(item => (
-            <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}/>
+            <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}
+            dealDetails={dealDetails}/>
           ))}
         </div>
         <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
       </div>
-      <Details actualData={actualData} loading={loading} chosenId={chosenId}/>
+      <Details actualData={actualData} loading={loading} chosenId={chosenId} isActive={isActive}/>
 
 
 

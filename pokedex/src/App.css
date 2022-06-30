@@ -5,8 +5,11 @@ body {
 }
 
 .container {
-  position: relative;
-  display: inline-block;
+  height: 100%;
+  overflow: auto;
+  float: right;
+  transition: width .35s;
+  width: 100%;
 }
 
 .list-container {

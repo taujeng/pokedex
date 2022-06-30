@@ -1,9 +1,12 @@
 import React from 'react';
 import './header.css';
 
-const Header = () => {
+const Header = ({ removeDetails }) => {
+  // removeDetails
+  // onClick, remove Detail component
+
   return (
-    <header className="header-container">
+    <header className="header-container" onClick={() => removeDetails()}>
       {/* Logo  */}
       <img src="./images/pokedex_logo.png" alt="Pokedex Logo" id="mainLogo" />
       {/* Captured Pokemon Button */}

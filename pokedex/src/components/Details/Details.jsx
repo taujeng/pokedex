@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './details.css';
 
-const Details = ({ actualData, loading, chosenId }) => {
+const Details = ({ actualData, loading, chosenId, isActive }) => {
   // const [detailsData, setDetailsData] = useState('');
   // console.log(actualData, chosenId);
 
@@ -22,6 +22,10 @@ const Details = ({ actualData, loading, chosenId }) => {
 
   // If no Pokemons are selected, return nothing
   if (!chosenId) {
+    return;
+  }
+
+  if (!isActive) {
     return;
   }
 
@@ -55,7 +59,10 @@ const Details = ({ actualData, loading, chosenId }) => {
     }
 
     return (
-      <div className="details-container">
+      <div
+        className={`details-container ${isActive ? '' : 'collapsed'}`}
+        id="details-container"
+      >
         <div className={`details-cover ${detailsData.types[0].type.name}-type`}>
           <img
             src={
