@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './details.css';
 
-const Details = ({ actualData, loading, chosenId, isActive }) => {
+const Details = ({ actualData, chosenId, isActive, enableModal }) => {
   // const [detailsData, setDetailsData] = useState('');
   // console.log(actualData, chosenId);
 
@@ -88,6 +88,9 @@ const Details = ({ actualData, loading, chosenId, isActive }) => {
           <p>Special Attack: {detailsData['stats'][3]['base_stat']}</p>
           <p>Special Defense: {detailsData['stats'][4]['base_stat']}</p>
           <p>Speed: {detailsData['stats'][5]['base_stat']}</p>
+        </div>
+        <div className="capture-button" onClick={enableModal}>
+          <div>Capture</div>
         </div>
       </div>
     );

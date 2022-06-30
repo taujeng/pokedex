@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './post.css';
 
-const Post = ({ id, data, loading, selectPokemon, dealDetails }) => {
+const Post = ({ id, data, loading, selectPokemon, showDetails }) => {
   useEffect(() => {
     const postButton = document.getElementById('post-container');
     postButton.addEventListener('click', () => {
@@ -33,7 +33,7 @@ const Post = ({ id, data, loading, selectPokemon, dealDetails }) => {
 
   const postClick = () => {
     selectPokemon(data.id);
-    dealDetails();
+    showDetails();
     console.log(data.id, 'post sent this');
   };
   // useEffect(() => {
@@ -64,7 +64,6 @@ const Post = ({ id, data, loading, selectPokemon, dealDetails }) => {
   return (
     <div
       onClick={postClick}
-      // onClick={() => selectPokemon(data.id)}
       className={`post-container ${data.types[0].type.name}-type`}
       id="post-container"
     >

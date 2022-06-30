@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Post from "./components/Post/Post"
 import Pagination from "./components/Pagination/Pagination"
 import Details from "./components/Details/Details"
+import CaptureModal from "./components/CaptureModal/CaptureModal"
 import { v4 as uuidv4 } from "uuid"
 import axios from "axios"
 
@@ -18,6 +19,7 @@ const App = () => {
   const [actualData, setActualData] = useState([]);
   const [chosenId, setChosenId] = useState();
   const [isActive, setIsActive] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   
 
@@ -109,29 +111,23 @@ const App = () => {
     console.log(id - 1, "Array Index for Details")
   }
 
-  // Show or remove Details
-  const dealDetails = () => {
-    setIsActive(true)
-  }
 
-  const removeDetails = () => {
-    setIsActive(false)
-  }
 
   return (
     <div className="App">
 
       <div className="container" id="container" >
-        <Header removeDetails={removeDetails}/>
+        <Header removeDetails={()=> {setIsActive(false)}}/>
         <div className="list-container">
           {currentPosts.map(item => (
             <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}
-            dealDetails={dealDetails}/>
+            showDetails={() => {setIsActive(true)}}/>
           ))}
         </div>
         <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
       </div>
-      <Details actualData={actualData} loading={loading} chosenId={chosenId} isActive={isActive}/>
+      <Details actualData={actualData} chosenId={chosenId} isActive={isActive} enableModal={() => {setShowModal(true)}}/>
+      <CaptureModal active={showModal} closeModal={()=> {setShowModal(false)}}/>
     </div>
   );
 }
