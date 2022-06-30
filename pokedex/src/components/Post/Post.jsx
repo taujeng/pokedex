@@ -58,7 +58,7 @@ const Post = ({ id, data, loading, selectPokemon }) => {
         <img
           className="post-image"
           src={data['sprites']['other']['official-artwork']['front_default']}
-          alt=""
+          alt={data.name}
         />
       </div>
 

@@ -17,7 +17,7 @@ const App = () => {
   const [pokedexData, setPokedexData] = useState([])
   const [firstData, setFirstData] = useState();
   const [actualData, setActualData] = useState([]);
-  const [chosenId, setChosenId] = useState(1);
+  const [chosenId, setChosenId] = useState(0);
 
   
 
@@ -118,7 +118,7 @@ const App = () => {
            <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}/>
         ))}
       </div>
-      <Details data={actualData} loading={loading} chosenId={chosenId}/>
+      <Details actualData={actualData} loading={loading} chosenId={chosenId}/>
       <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
 
 
