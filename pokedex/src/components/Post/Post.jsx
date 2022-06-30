@@ -2,25 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './post.css';
 
 const Post = ({ id, data, loading, selectPokemon }) => {
-  // const postName = data['name'];
-  // const postUrl = data['url'];
-  const [postDetails, setPostDetails] = useState(false);
-  const [postData, setPostData] = useState(null);
-  const [isHere, setIsHere] = useState(true);
-
-  const postID = id;
-
-  // useEffect(() => {
-  //   setPostData(data);
-  //   let tempTitle = '';
-  //   if (postData) {
-  //     while (postData.order.length < 3) {
-  //       tempTitle += '0';
-  //     }
-  //   }
-  //   setPostTitle(tempTitle);
-  // }, []);
-
   // Uppercase Words
   function upperCase(str) {
     return str[0].toUpperCase() + str.slice(1);

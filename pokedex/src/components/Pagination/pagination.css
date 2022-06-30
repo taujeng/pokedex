@@ -11,8 +11,8 @@
 
 .page-number {
   margin: 5px;
-  height: 25px;
-  width: 25px;
+  height: 40px;
+  width: 40px;
   border: 1px solid black;
   display: flex;
   justify-content: center;
@@ -23,6 +23,11 @@
 .page-link {
   text-decoration: none;
   font-weight: bold;
+  font-size: 25px;
+}
+
+.page-link:active {
+  color:lightcoral ;
 }
 
 .page-link:hover {
