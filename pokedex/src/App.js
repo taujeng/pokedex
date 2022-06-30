@@ -17,7 +17,7 @@ const App = () => {
   const [pokedexData, setPokedexData] = useState([])
   const [firstData, setFirstData] = useState();
   const [actualData, setActualData] = useState([]);
-  const [chosenId, setChosenId] = useState(0);
+  const [chosenId, setChosenId] = useState();
 
   
 
@@ -103,23 +103,26 @@ const App = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-  // View Details of a Pokemon by clicking on Post
+  // Pass the correct index to Details
   const selectPokemon = (id) => {
-    setChosenId(id)
-    console.log(id, "chosen ID selected")
+    setChosenId(id - 1)
+    console.log(id - 1, "Array Index for Details")
   }
 
   return (
     <div className="App">
-      <Header />
-      <div className="list-container">
-        {/* <PokedexList actualData={actualData} loading={loading}/> */}
-        {currentPosts.map(item => (
-           <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}/>
-        ))}
+      <div className="container">
+        <Header />
+        <div className="list-container">
+          {/* <PokedexList actualData={actualData} loading={loading}/> */}
+          {currentPosts.map(item => (
+            <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}/>
+          ))}
+        </div>
+        <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
       </div>
       <Details actualData={actualData} loading={loading} chosenId={chosenId}/>
-      <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
+
 
 
     </div>

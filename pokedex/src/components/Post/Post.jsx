@@ -8,7 +8,7 @@ const Post = ({ id, data, loading, selectPokemon }) => {
   }
 
   // Creating Post Title
-  let postTitle = String(data.id);
+  let postTitle = String(data.order);
   while (postTitle.length < 3) {
     postTitle = '0' + postTitle;
   }
