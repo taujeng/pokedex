@@ -1,6 +1,8 @@
 # Pokedex
 
-Pokedex lists Pokemons in custom posts!
+Pokedex lists Pokemons in custom posts.
+
+## The original 151 Pokemons!
 
 ![Pokedex Example](./README_img/display1.jpg?raw=true 'Pokedex')
 
