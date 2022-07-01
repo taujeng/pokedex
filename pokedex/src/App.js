@@ -127,7 +127,7 @@ const App = () => {
         <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
       </div>
       <Details actualData={actualData} chosenId={chosenId} isActive={isActive} enableModal={() => {setShowModal(true)}}/>
-      <CaptureModal active={showModal} closeModal={()=> {setShowModal(false)}}/>
+      <CaptureModal active={showModal}  closeModal={()=> {setShowModal(false)}} chosenId={chosenId} actualData={actualData}/>
     </div>
   );
 }

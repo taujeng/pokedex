@@ -89,9 +89,10 @@ const Details = ({ actualData, chosenId, isActive, enableModal }) => {
           <p>Special Defense: {detailsData['stats'][4]['base_stat']}</p>
           <p>Speed: {detailsData['stats'][5]['base_stat']}</p>
         </div>
-        <div className="capture-button" onClick={enableModal}>
-          <div>Capture</div>
-        </div>
+
+        <button className="capture-button" onClick={enableModal}>
+          Capture
+        </button>
       </div>
     );
   }

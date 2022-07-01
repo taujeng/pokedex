@@ -48,3 +48,17 @@
 .details-stats {
   margin-bottom: 20px;
 }
+
+ /* Capture Button */
+ .capture-button {
+  border: none;
+  background:#EB5435;
+  align-self: center;
+  width: 83%;
+  margin: 20px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 18px;
+  height: 53px;
+  border-radius: 100px;
+  cursor: pointer;
+ }

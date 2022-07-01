@@ -8,8 +8,51 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .modal-content {
   background: white;
+  width: 348px;
+  height: 334px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+input {
+  margin: 10px;
+  height: 30px;
+  width: 296px;
+  border-radius: 5px;
+  border-color: lightgrey;
+  border-width: 2.5px;
+
+}
+
+input:focus {
+  border-color: darkslategrey;
+}
+
+.modal-content button {
+  background: #EB5435;
+  height: 53px;
+  width: 296px;
+  border-radius: 100px;
+  color: white;
+  /* font-weight: bold; */
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
