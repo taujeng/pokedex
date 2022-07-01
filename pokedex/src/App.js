@@ -20,6 +20,7 @@ const App = () => {
   const [chosenId, setChosenId] = useState();
   const [isActive, setIsActive] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [localStorage, setLocalStorage] = useState([])
 
   
 
@@ -95,8 +96,18 @@ const App = () => {
     getPosts()
     // console.log(actualData, "2nd")
 
-      setLoading(false)
+    setLoading(false)
   }, [])
+
+
+  useEffect(()=> {
+    // Grab Local Storage
+    const checkLocal = window.localStorage.getItem('pokedex');
+    const grabLocal = checkLocal ? JSON.parse(checkLocal.split(',')) : [];
+    setLocalStorage(grabLocal)
+
+    // updated everytime CapturedModal is opened/closed
+  }, [showModal])
 
   // Pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -126,7 +137,7 @@ const App = () => {
         </div>
         <Pagination postsPerPage={postsPerPage} totalPosts={actualData.length} paginate={paginate}/>
       </div>
-      <Details actualData={actualData} chosenId={chosenId} isActive={isActive} enableModal={() => {setShowModal(true)}}/>
+      <Details actualData={actualData} chosenId={chosenId} isActive={isActive} enableModal={() => {setShowModal(true)}} localStorage={localStorage}/>
       <CaptureModal active={showModal}  closeModal={()=> {setShowModal(false)}} chosenId={chosenId} actualData={actualData}/>
     </div>
   );
