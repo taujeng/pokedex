@@ -12,7 +12,7 @@
 
 .header-button {
   color: white;
-  background: red;
+  background: #EB5435;
   height: 72px;
   /* width: 420px; */
   display: flex;
@@ -28,4 +28,18 @@
 .header-button img {
   height: 72px;
   width: 72px;
+}
+
+@media (max-width: 750px) {
+  .header-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right: 0;
+    transform: translate(-15px, -25px);
+    background-color: #FAFAFA;
+  }
+  .header-button span {
+    display: none;
+  }
 }

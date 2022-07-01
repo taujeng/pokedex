@@ -23,7 +23,7 @@ const Header = ({ removeDetails, actualData, localStorage }) => {
           alt="Pokeball"
           className="header-pokeball-img"
         />
-        Captured Pokemon
+        <span>Captured Pokemon</span>
       </Link>
     </div>
   );

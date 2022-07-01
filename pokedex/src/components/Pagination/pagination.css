@@ -34,3 +34,12 @@
   color: lightcoral;
 }
 
+@media (max-width: 750px) {
+  .page-number {
+    height: 20px;
+    width: 20px;
+  }
+  .page-link {
+    font-size: 15px;
+  }
+}
