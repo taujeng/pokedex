@@ -2,7 +2,7 @@ import React from 'react';
 import './header.css';
 import { Link } from 'react-router-dom';
 
-const Header = ({ removeDetails }) => {
+const Header = ({ removeDetails, actualData, localStorage }) => {
   // removeDetails
   // onClick, remove Detail component
 
@@ -11,7 +11,11 @@ const Header = ({ removeDetails }) => {
       {/* Logo  */}
       <img src="./images/pokedex_logo.png" alt="Pokedex Logo" id="mainLogo" />
       {/* Captured Pokemon Button */}
-      <Link to="/capturedpokemon" className="header-button">
+      <Link
+        to="/capturedpokemon"
+        state={{ actualData: actualData, localStorage: localStorage }}
+        className="header-button"
+      >
         <img
           src="./images/pokeball.png"
           alt="Pokeball"
