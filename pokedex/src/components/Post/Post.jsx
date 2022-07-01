@@ -41,9 +41,7 @@ const Post = ({ data, selectPokemon, showDetails }) => {
       </div>
       {/* Post Sub-Text */}
       <div className="post-text">
-        <p>
-          <b>{postTitle}</b>
-        </p>
+        <h1>{postTitle}</h1>
         <p>{pokemonTypes}</p>
       </div>
     </div>

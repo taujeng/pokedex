@@ -66,7 +66,7 @@ const CaptureModal = ({ active, closeModal, chosenId, actualData }) => {
             placeholder="Captured Level"
             required
           />
-          <input type="submit" value="submit"></input>
+          {/* <input type="submit" value="submit"></input> */}
         </form>
         <button type="submit" onClick={clickModal}>
           Capture

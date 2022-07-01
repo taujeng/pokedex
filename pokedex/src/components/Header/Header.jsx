@@ -9,7 +9,9 @@ const Header = ({ removeDetails, actualData, localStorage }) => {
   return (
     <div className="header-container" onClick={() => removeDetails()}>
       {/* Logo  */}
-      <img src="./images/pokedex_logo.png" alt="Pokedex Logo" id="mainLogo" />
+      <Link to="/">
+        <img src="./images/pokedex_logo.png" alt="Pokedex Logo" id="mainLogo" />
+      </Link>
       {/* Captured Pokemon Button */}
       <Link
         to="/capturedpokemon"
