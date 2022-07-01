@@ -7,79 +7,36 @@ import Details from "./components/Details/Details"
 import CaptureModal from "./components/CaptureModal/CaptureModal"
 import { v4 as uuidv4 } from "uuid"
 import axios from "axios"
-import { Link } from "react-router-dom"
 
 const App = () => {
 
-
-  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  // Number of Pokemon Shown Per Page
   const [postsPerPage, setPostsPerPage] = useState(12)
-  const [pokedexData, setPokedexData] = useState([])
-  const [firstData, setFirstData] = useState();
+  // Pokemon Data: An array of objects
   const [actualData, setActualData] = useState([]);
+  // Selected Pokemon's index in actualData
   const [chosenId, setChosenId] = useState();
+  // Determines if Detail is shown
   const [isActive, setIsActive] = useState(false)
+  // Determines if Capture Modal is shown
   const [showModal, setShowModal] = useState(false)
+  // Captured Pokemon's data stored in local storage
   const [localStorage, setLocalStorage] = useState([])
-
-  
-
-
-  // useEffect(() => {
-  //   async function getPokemonData() {
-  //     setLoading(true);
-  //     console.log(loading)
-
-  //     const rawData = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
-  //       .then(res => res.json())
-  //       // .then(data => console.log(data))
-  //       // .then(data => {
-  //       //   setPokedexData(data.results)
-  //       //   console.log(pokedexData)
-  //       // })
-  //     setPokedexData(rawData)
-  //     console.log(pokedexData)
-
-
-
-
-  //     let listy = []
-  //     for (let i=0; i < pokedexData.length; i++) {
-  //       const dip = await fetch(pokedexData[i]["url"])
-  //         .then(res => res.json())
-  //         // .then(data => console.log(data))
-  //       listy.push(dip)
-  //     }
-  //     console.log(listy)
-
-
-
-
-  //     setLoading(false);
-
-  //   }
-  //   getPokemonData();
-  // }, [])
-
-
 
 
   // using Axios
 
-
+  // Fetch Pokemon Data from API
   useEffect(() => {
     const getPosts = async() => {
-      setLoading(true)
-
-      // can't just stack res.data.results
+      // Number of Pokemon to Fetch: just the original 151
+      const howMany = 151;
 
       try {
-        const res = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${howMany}&offset=0`)
         const res2 = res.data
         const res3 = res2.results
-        setFirstData(res3);
-
 
         let fullList = []
         for (let i=0; i < res3.length; i++) {
@@ -87,17 +44,14 @@ const App = () => {
           const dip2 = dip.data;
           fullList.push(dip2)
         }
-        console.log(fullList)
+        // console.log(fullList)
+        // Set Data received to actualData
         setActualData(fullList)
       } catch(e) {
         console.log(e)
       }
-
     }
     getPosts()
-    // console.log(actualData, "2nd")
-
-    setLoading(false)
   }, [])
 
 
@@ -120,9 +74,7 @@ const App = () => {
   // Pass the correct index to Details
   const selectPokemon = (id) => {
     setChosenId(id - 1)
-    console.log(id - 1, "Array Index for Details")
   }
-
 
 
   return (
