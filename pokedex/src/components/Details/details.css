@@ -67,3 +67,13 @@
   border-radius: 100px;
   cursor: pointer;
  }
+
+
+ /* @media (max-width: 750px) {
+  .details-container {
+    position: absolute;
+    z-index: 2;
+    background: white;
+    width: 90vw !important;
+  }
+ } */

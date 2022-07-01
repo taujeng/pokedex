@@ -31,28 +31,53 @@ const CapRow = ({ localItem, actualData }) => {
   }
 
   return (
-    <div className="CapRow-container">
-      <div className="CapRow-pokemon">
-        <div className={`CapRow-image ${spotlight.types[0].type.name}-type`}>
-          <img
-            src={
-              spotlight['sprites']['other']['official-artwork']['front_default']
-            }
-            alt={spotlight.name}
-            className="CapRow-image"
-          />
+    <div>
+      <div className="CapRow-container">
+        <div className="CapRow-pokemon">
+          <div className={`CapRow-image ${spotlight.types[0].type.name}-type`}>
+            <img
+              src={
+                spotlight['sprites']['other']['official-artwork'][
+                  'front_default'
+                ]
+              }
+              alt={spotlight.name}
+              className="CapRow-image"
+            />
+          </div>
+          <div className="CapRow-title">
+            <h1>{postTitle}</h1>
+            <p>{pokemonTypes}</p>
+          </div>
         </div>
-        <div className="CapRow-title">
-          <h1>{postTitle}</h1>
-          <p>{pokemonTypes}</p>
+        <div className="row-item">{localItem['nickname']}</div>
+        <div className="row-item">
+          {styleHelper.setDate(localItem['captured_date'])}
         </div>
+        <div className="row-item">{localItem['captured_level']}</div>
       </div>
-      <div className="CapRow-nickname row-item">{localItem['nickname']}</div>
-      <div className="CapRow-capturedAt row-item">
-        {styleHelper.setDate(localItem['captured_date'])}
-      </div>
-      <div className="CapRow-capturedLevel row-item">
-        {localItem['captured_level']}
+      {/* Mobile View */}
+      <div className="mobile-CapRow-container">
+        <div className="mobile-CapRow-image">
+          <div className={`CapRow-image ${spotlight.types[0].type.name}-type`}>
+            <img
+              src={
+                spotlight['sprites']['other']['official-artwork'][
+                  'front_default'
+                ]
+              }
+              alt={spotlight.name}
+              className="CapRow-image"
+            />
+          </div>
+        </div>
+        <div className="mobile-CapRow-text">
+          <div id="mobile-CapRow-title">{localItem['nickname']}</div>
+          <div className="row-item">
+            {styleHelper.setDate(localItem['captured_date'])}
+          </div>
+          <div className="row-item">{localItem['captured_level']}</div>
+        </div>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const CapturedPokemon = () => {
 
   return (
     <div className="captured-pokemon-container">
-      <header className="header-container">
+      <header>
         {/* Logo  */}
         <Link to="/">
           <img
@@ -21,6 +21,11 @@ const CapturedPokemon = () => {
           />
         </Link>
       </header>
+      {/* Mobile Header */}
+      <div className="mobile-capturedPokemon-title">
+        <h1>Captured Pokemon</h1>
+      </div>
+
       <div className="captured-area">
         <div className="titles">
           <h1>POKEMON</h1>
