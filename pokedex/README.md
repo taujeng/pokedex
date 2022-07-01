@@ -1,8 +1,16 @@
 # Pokedex
 
-Pokedex lists the original 151 Pokemons in custom posts!
+Pokedex lists Pokemons in custom posts!
 
-![Pokedex Example](pokedexSS.jpg?raw=true 'Pokedex')
+![Pokedex Example](./README_img/display1.jpg?raw=true 'Pokedex')
+
+## Select Pokemon to see their details and capture them
+
+![Capture Example](./README_img/display2.jpg?raw=true 'Capturing')
+
+## View the Pokemons you've caught
+
+![Capture Example](./README_img/display3.jpg?raw=true 'Capturing')
 
 ## Goal is to:
 
@@ -10,7 +18,7 @@ Pokedex lists the original 151 Pokemons in custom posts!
 - [x] Render each Pokemon as an individual post
 - [x] On click, a more detailed version of the post should appear
 - [x] Be able to catch a Pokemon and add additional information
-- [ ] List out all the captured Pokemon
+- [x] List out all the captured Pokemon
 
 ## Usage:
 
@@ -20,4 +28,4 @@ npm start
 
 ## Tech Used:
 
-React, UUid, Axiom
+React, UUid, Axiom, ReactRouter
