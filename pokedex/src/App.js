@@ -128,10 +128,10 @@ const App = () => {
   return (
     <div className="App">
       <div className="container" id="container" >
-        <Header actualData={actualData} localStorage={localStorage} removeDetails={()=> {setIsActive(false)}}/>
+        <Header actualData={actualData} localStorage={localStorage}removeDetails={()=> {setIsActive(false)}}/>
         <div className="list-container">
           {currentPosts.map(item => (
-            <Post key={uuidv4()} data={item} loading={loading} selectPokemon={selectPokemon}
+            <Post key={uuidv4()} data={item} selectPokemon={selectPokemon}
             showDetails={() => {setIsActive(true)}}/>
           ))}
         </div>

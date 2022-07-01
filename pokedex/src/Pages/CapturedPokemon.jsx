@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './capturedpokemon.css';
 import CapRow from '../components/capRow/CapRow';
+import { v4 as uuidv4 } from 'uuid';
 
 const CapturedPokemon = () => {
   const location = useLocation();
@@ -29,7 +30,7 @@ const CapturedPokemon = () => {
         </div>
         {localStorage.length > 0 &&
           localStorage.map((item) => (
-            <CapRow localItem={item} actualData={actualData} />
+            <CapRow key={uuidv4()} localItem={item} actualData={actualData} />
           ))}
       </div>
     </div>

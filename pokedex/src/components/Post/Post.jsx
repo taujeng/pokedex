@@ -1,19 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import styleHelper from '../../styleHelper';
 import './post.css';
 
-const Post = ({ id, data, loading, selectPokemon, showDetails }) => {
-  // useEffect(() => {
-  //   const postButton = document.getElementById('post-container');
-  //   postButton.addEventListener('click', () => {
-  //     document.getElementById('details-container').classList.toggle('collapse');
-  //   });
-  // }, []);
-
-  // Uppercase Words
-  function upperCase(str) {
-    return str[0].toUpperCase() + str.slice(1);
-  }
-
+const Post = ({ data, selectPokemon, showDetails }) => {
   // Creating Post Title
   let postTitle = String(data.order);
   while (postTitle.length < 3) {
@@ -21,45 +10,20 @@ const Post = ({ id, data, loading, selectPokemon, showDetails }) => {
   }
   let name1 = data.name;
   // Might have to change this if Pokemon names contain >1 word
-  name1 = upperCase(name1);
+  name1 = styleHelper.upperCase(name1);
   postTitle = '#' + postTitle + ' ' + name1;
 
   // Pokemon Types
-  let pokemonTypes = upperCase(data.types[0].type.name);
+  let pokemonTypes = styleHelper.upperCase(data.types[0].type.name);
 
   for (let i = 1; i < data.types.length; i++) {
-    pokemonTypes += ' • ' + upperCase(data.types[i].type.name);
+    pokemonTypes += ' • ' + styleHelper.upperCase(data.types[i].type.name);
   }
 
   const postClick = () => {
     selectPokemon(data.id);
     showDetails();
-    console.log(data.id, 'post sent this');
   };
-  // useEffect(() => {
-  //   async function getDetails() {
-  //     const urlDetails = postUrl;
-  //     const responseDetails = await fetch(urlDetails);
-  //     const dataDetails = await responseDetails.json();
-
-  //     setPostDetails(dataDetails);
-  //   }
-  //   getDetails();
-  // }, []);
-
-  // useEffect(() => {
-  //   setPostData(data);
-  //   setIsHere(true);
-  // }, [postData]);
-
-  // let postImage;
-  // if (!postDetails) {
-  //   postImage = <h1>loading man</h1>;
-  // } else if (postDetails) {
-  //   postImage = (
-  //     <img src={postDetails['sprites']['other']['official-artwork']} alt="" />
-  //   );
-  // }
 
   return (
     <div
@@ -67,6 +31,7 @@ const Post = ({ id, data, loading, selectPokemon, showDetails }) => {
       className={`post-container ${data.types[0].type.name}-type`}
       id="post-container"
     >
+      {/* Post Image + Title */}
       <div className="img-container">
         <img
           className="post-image"
@@ -74,7 +39,7 @@ const Post = ({ id, data, loading, selectPokemon, showDetails }) => {
           alt={data.name}
         />
       </div>
-
+      {/* Post Sub-Text */}
       <div className="post-text">
         <p>
           <b>{postTitle}</b>
