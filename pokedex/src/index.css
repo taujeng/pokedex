@@ -1,0 +1,9 @@
+.wrong-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrong-page p {
+  font-size: 20px;
+}

@@ -12,10 +12,6 @@ const Details = ({
   // const [detailsData, setDetailsData] = useState('');
   // console.log(actualData, chosenId);
 
-  // Problem with wrapping everything in a useEffect is that
-  // would have to use useState to access things
-  // and first render the useState is empty -> giving us errors
-
   // useEffect(() => {
   //   const getDetailsData = data.filter((item) => {
   //     return item.id === chosenId;
@@ -33,6 +29,17 @@ const Details = ({
   //   return;
   // }
 
+  // If Details Component is not active, return nothing.
+  if (!isActive) {
+    return;
+  }
+
+  // Uppercase Words
+  function upperCase(str) {
+    return str[0].toUpperCase() + str.slice(1);
+  }
+
+  // Format Date
   function setDate(date) {
     // date we receive:
     // const receivedDate = capturedPokemon[0]['captured_date'];
@@ -57,16 +64,6 @@ const Details = ({
 
     const newDate = `${months[oldMonth - 1]} ${oldDay}, ${oldYear}`;
     return newDate;
-  }
-
-  // If Details Component is not active, return nothing.
-  if (!isActive) {
-    return;
-  }
-
-  // Uppercase Words
-  function upperCase(str) {
-    return str[0].toUpperCase() + str.slice(1);
   }
 
   // Individual Pokemon Details

@@ -7,6 +7,7 @@ import Details from "./components/Details/Details"
 import CaptureModal from "./components/CaptureModal/CaptureModal"
 import { v4 as uuidv4 } from "uuid"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 const App = () => {
 
@@ -126,7 +127,6 @@ const App = () => {
 
   return (
     <div className="App">
-
       <div className="container" id="container" >
         <Header removeDetails={()=> {setIsActive(false)}}/>
         <div className="list-container">
