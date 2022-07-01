@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './post.css';
 
 const Post = ({ id, data, loading, selectPokemon, showDetails }) => {
-  useEffect(() => {
-    const postButton = document.getElementById('post-container');
-    postButton.addEventListener('click', () => {
-      document.getElementById('details-container').classList.toggle('collapse');
-    });
-  }, []);
+  // useEffect(() => {
+  //   const postButton = document.getElementById('post-container');
+  //   postButton.addEventListener('click', () => {
+  //     document.getElementById('details-container').classList.toggle('collapse');
+  //   });
+  // }, []);
 
   // Uppercase Words
   function upperCase(str) {
