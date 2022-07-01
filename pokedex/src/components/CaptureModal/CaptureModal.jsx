@@ -32,7 +32,7 @@ const CaptureModal = ({ active, closeModal, chosenId, actualData }) => {
     };
 
     // First Time Storing in Local Storage
-    const anyData = localStorage.getItem('pokedex');
+    const anyData = window.localStorage.getItem('pokedex');
     console.log(anyData, 'anydata');
 
     const dataToStore = anyData ? JSON.parse(anyData.split(',')) : [];

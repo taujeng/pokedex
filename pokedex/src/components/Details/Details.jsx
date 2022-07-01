@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './details.css';
 
-const Details = ({ actualData, chosenId, isActive, enableModal }) => {
+const Details = ({
+  actualData,
+  chosenId,
+  isActive,
+  enableModal,
+  localStorage,
+}) => {
+  const [useDate, setUseDate] = useState();
   // const [detailsData, setDetailsData] = useState('');
   // console.log(actualData, chosenId);
 
@@ -26,6 +33,32 @@ const Details = ({ actualData, chosenId, isActive, enableModal }) => {
   //   return;
   // }
 
+  function setDate(date) {
+    // date we receive:
+    // const receivedDate = capturedPokemon[0]['captured_date'];
+    // format: "2022-06-30"
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    const oldMonth = parseInt(date.slice(5, 7));
+    const oldDay = date.slice(8, 10);
+    const oldYear = date.slice(0, 4);
+
+    const newDate = `${months[oldMonth - 1]} ${oldDay}, ${oldYear}`;
+    return newDate;
+  }
+
   // If Details Component is not active, return nothing.
   if (!isActive) {
     return;
@@ -42,7 +75,6 @@ const Details = ({ actualData, chosenId, isActive, enableModal }) => {
 
   // Once Data is received:
   if (actualData.length > 0) {
-    console.log(detailsData);
     // Creating Post Title
     let postTitle = String(detailsData.order);
     while (postTitle.length < 3) {
@@ -59,6 +91,13 @@ const Details = ({ actualData, chosenId, isActive, enableModal }) => {
     for (let i = 1; i < detailsData.types.length; i++) {
       pokemonTypes += ' • ' + upperCase(detailsData.types[i].type.name);
     }
+
+    // Locally Stored Custom Data
+
+    // check if current Pokemon details match any captured Pokemon
+    const capturedPokemon = localStorage.filter((item) => {
+      return item.name === detailsData.name;
+    });
 
     return (
       <div className="details-container" id="details-container">
@@ -89,10 +128,18 @@ const Details = ({ actualData, chosenId, isActive, enableModal }) => {
           <p>Special Defense: {detailsData['stats'][4]['base_stat']}</p>
           <p>Speed: {detailsData['stats'][5]['base_stat']}</p>
         </div>
-
-        <button className="capture-button" onClick={enableModal}>
-          Capture
-        </button>
+        {capturedPokemon.length > 0 ? (
+          <div className="details-text capture-information">
+            <h1>Capture Information</h1>
+            <p>Nickname: {capturedPokemon[0]['nickname']}</p>
+            <p>Captured on: {setDate(capturedPokemon[0]['captured_date'])}</p>
+            <p>Captured Level: {capturedPokemon[0]['captured_level']}</p>
+          </div>
+        ) : (
+          <button className="capture-button" onClick={enableModal}>
+            Capture
+          </button>
+        )}
       </div>
     );
   }
