@@ -43,6 +43,7 @@ const App = () => {
           const dip = await axios.get(res3[i]["url"])
           const dip2 = dip.data;
           fullList.push(dip2)
+          console.log(fullList)
         }
         // console.log(fullList)
         // Set Data received to actualData
@@ -52,6 +53,7 @@ const App = () => {
       }
     }
     getPosts()
+
   }, [])
 
 
